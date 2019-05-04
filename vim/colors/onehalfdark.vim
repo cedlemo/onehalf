@@ -17,7 +17,7 @@ let g:colors_name="onehalfdark"
 let colors_name="onehalfdark"
 
 
-let s:black       = { "gui": "#282c34", "cterm": "236" }
+let s:black       = { "gui": "#282828", "cterm": "235" }
 let s:red         = { "gui": "#e06c75", "cterm": "168" }
 let s:green       = { "gui": "#98c379", "cterm": "114" }
 let s:yellow      = { "gui": "#e5c07b", "cterm": "180" }
@@ -30,14 +30,14 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { "gui": "#5c6370", "cterm": "241" }
-let s:gutter_bg   = { "gui": "#282c34", "cterm": "236" }
+let s:gutter_bg   = { "gui": "#282828", "cterm": "235" }
 let s:gutter_fg   = { "gui": "#919baa", "cterm": "247" }
 
 let s:cursor_line = { "gui": "#313640", "cterm": "237" }
 let s:color_col   = { "gui": "#313640", "cterm": "237" }
 
 let s:selection   = { "gui": "#474e5d", "cterm": "239" }
-let s:vertsplit   = { "gui": "#313640", "cterm": "237" }
+let s:vertsplit   = { "gui": "#282828", "cterm": "235" }
 
 
 function! s:h(group, fg, bg, attr)
