@@ -39,6 +39,40 @@ let s:color_col   = { "gui": "#313640", "cterm": "237" }
 let s:selection   = { "gui": "#474e5d", "cterm": "239" }
 let s:vertsplit   = { "gui": "#282828", "cterm": "235" }
 
+if !exists('g:onehalfdark_italic')
+  if has('gui_running') || $TERM_ITALICS == 'true'
+    let g:onehalfdark_italic=1
+  else
+    let g:onehalfdark_italic=0
+  endif
+endif
+
+let s:italic = 'italic,'
+if g:onehalfdark_italic == 0
+  let s:italic = ''
+endif
+
+let s:italicize_comments = s:italic
+if exists('g:onehalfdark_italicize_comments')
+  if g:onehalfdark_italicize_comments == 0
+    let s:italicize_comments = ''
+  endif
+endif
+
+let s:italicize_strings = ''
+if exists('g:onehalfdark_italicize_strings')
+  if g:onehalfdark_italicize_strings == 1
+    let s:italicize_strings = s:italic
+  endif
+endif
+
+call s:HL('Comment', s:comment_fg, s:none, s:italicize_comments)
+
+if g:onehalfdark_improved_strings == 0
+  call s:HL('String',  s:green, s:none, s:italicize_strings)
+else
+  call s:HL('String',  s:green, s:none, s:italicize_strings)
+endif
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
