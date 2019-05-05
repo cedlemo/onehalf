@@ -72,12 +72,6 @@ if exists('g:onehalfdark_italicize_strings')
   endif
 endif
 
-call s:HL('Comment', s:comment_fg, s:none, s:italicize_comments)
-
-if g:onehalfdark_improved_strings == 1
-  call s:HL('String',  s:green, s:none, s:italicize_strings)
-endif
-
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
     exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . a:fg.cterm
@@ -95,6 +89,12 @@ function! s:h(group, fg, bg, attr)
     exec "hi " . a:group . " gui=NONE cterm=NONE"
   endif
 endfun
+
+call s:h('Comment', s:comment_fg, s:none, s:italicize_comments)
+
+if g:onehalfdark_improved_strings == 1
+  call s:h('String',  s:green, s:none, s:italicize_strings)
+endif
 
 
 " User interface colors {
