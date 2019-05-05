@@ -39,12 +39,18 @@ let s:color_col   = { "gui": "#313640", "cterm": "237" }
 let s:selection   = { "gui": "#474e5d", "cterm": "239" }
 let s:vertsplit   = { "gui": "#282828", "cterm": "235" }
 
+let s:none = ['NONE', 'NONE']
+
 if !exists('g:onehalfdark_italic')
   if has('gui_running') || $TERM_ITALICS == 'true'
     let g:onehalfdark_italic=1
   else
     let g:onehalfdark_italic=0
   endif
+endif
+
+if !exists('g:onehalfdark_improved_strings')
+  let g:onehalfdark_improved_strings=0
 endif
 
 let s:italic = 'italic,'
@@ -68,9 +74,7 @@ endif
 
 call s:HL('Comment', s:comment_fg, s:none, s:italicize_comments)
 
-if g:onehalfdark_improved_strings == 0
-  call s:HL('String',  s:green, s:none, s:italicize_strings)
-else
+if g:onehalfdark_improved_strings == 1
   call s:HL('String',  s:green, s:none, s:italicize_strings)
 endif
 
