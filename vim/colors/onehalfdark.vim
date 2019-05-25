@@ -90,12 +90,6 @@ function! s:h(group, fg, bg, attr)
   endif
 endfun
 
-call s:h('Comment', s:comment_fg, s:none, s:italicize_comments)
-
-if g:onehalfdark_improved_strings == 1
-  call s:h('String',  s:green, s:none, s:italicize_strings)
-endif
-
 
 " User interface colors {
 call s:h("Normal", s:fg, s:bg, "")
@@ -157,9 +151,14 @@ call s:h("WildMenu", s:fg, "", "")
 
 
 " Syntax colors {
-call s:h("Comment", s:comment_fg, "", "")
-call s:h("Constant", s:cyan, "", "")
-call s:h("String", s:green, "", "")
+call s:h('Comment', s:comment_fg, "None", s:italicize_comments)
+
+if g:onehalfdark_improved_strings == 1
+  call s:h('String',  s:green, "None", s:italicize_strings)
+else
+  call s:h('String',  s:green, s:none, "")
+endif
+
 call s:h("Character", s:green, "", "")
 call s:h("Number", s:yellow, "", "")
 call s:h("Boolean", s:yellow, "", "")
